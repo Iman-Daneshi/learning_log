@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+import django_heroku
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -34,7 +35,9 @@ INSTALLED_APPS = [
     # My apps
     'learning_logs',
     'users',
-
+    
+    # Third party apps.
+    'bootstrap4',
     # Default django apps.
     'django.contrib.admin',
     'django.contrib.auth',
@@ -129,3 +132,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # My settings
 LOGIN_URL = 'users:login'
+
+# Heroku settings.
+django_heroku.settings(locals())
